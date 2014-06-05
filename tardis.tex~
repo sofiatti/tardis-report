@@ -80,14 +80,14 @@ Finally, the excitation modes can be \texttt{LTE} or \texttt{dilute LTE}. \textt
 
 TARDIS is an implementation of the energy-packet MC. According to this formalism \cite{lucy} \cite{lucy_2002} \cite{lucy_2003}, packets are indivisible, monochromatic quanta of radiant energy. This constraint is used because it leads to a simple code. 
 
-The MC radiation field is generated iteratively and one can specify a different number of packets for the last MC simulation. We will discuss in \S ~\ref{sec:sn_last} how this affects the signal-to-noise ratio (S/N) of the final spectrum.
+The MC radiation field is generated iteratively to compute the radiative equilibrium temperature stratification and one can specify a different number of packets for the last MC simulation. Though the boundary temperature $T_{b}$ is iteratively improved, in the final iteration T is established and the spectrum is computed. We will discuss in \S ~\ref{sec:sn_last} how the number of packets in the last iteration affects the signal-to-noise ratio (S/N) of the final spectrum.
 
-Also during this last simulation, a set of test packets referred to as virtual packets are created. The purpose of these virtual packets is variance reduction. 
+Also during this last simulation, a set of test packets referred to as virtual packets are created. These packets serve to reduce variance. 
   
 One can set the number of packets, last packets, and virtual packets in the  \texttt{montecarlo} section.
 
 \subsection{Future versions of TARDIS}
-According to \cite{tardis}, in the near future TARDIS will incorporate additional physics such as bound-free/ thermalization processes. Another future implementation is to compute opacities to handle radiation-matter interactions.
+According to \cite{tardis}, in the near future TARDIS will incorporate additional physics such as bound-free/ thermalization processes for a more sophisticated ionization approximation and to allow for spectral synthesis of SNe II. Another future implementation is to compute opacities to handle radiation-matter interactions.
 
 \subsection{\label{sec:about_report} About this report}
 
@@ -595,6 +595,7 @@ $10^1$ & 12.03 & 5.142 & 9.89 & 6.258 & 9.54 & 6.370 \\ \hline \hline
 
 
 \section{Conclusion}
+
 Virtual packets are not as relevant to yielding a low S/N as the number of last packets. We reach this by analyzing figs. ~\ref{fig:pack1E7}-~\ref{fig:pack1E4}. In these figures, only virtual packets and last packets change from case to case. The fact that cases II and III have similar noise (though case III is slightly noisier) indicates that the number of last packets is the main determinant of the noise. Recall that cases II and III have the same number of last packets. 
 
  Moreover, fig. ~\ref{fig:last_pack1E7} shows that if the number of packets is high (above $\sim 10^7$), the number of packets and the number of virtual packets do not play an important role in determining the noisiness of the simulation. As the number of last packets decrease, figs ~\ref{fig:last_pack1E6},  ~\ref{fig:last_pack1E5}, and  ~\ref{fig:last_pack1E4} show that the number of virtual packets are a better indicator of the noise than the number of packets. Finally, case IV of fig. ~\ref{fig:virtual_pack1E3} suggests that one can obtain spectra with a relatively low S/N even if the number of last packets and the number of packets are low ($\sim 10^5$ and $\sim 10^4$, respectively). Nevertheless, there is a loss of accuracy. Note that the spectrum for \texttt{macroatom} differs from the spectrum for \texttt{downbranch} more noticeably than in the other plots.
@@ -610,15 +611,12 @@ Finally, optimal settings for the number of packets, last packets and virtual pa
 \hline % inserts single horizontal line 
 Packets         & $10^3$ & $10^3$ & $10^3$ & $10^4$ \\ % inserting body of the table 
 Last packets    & $10^5$ & $10^4$ & $10^5$ & $10^5$ \\ 
-Virtual packets & 10 & 10 & - & 100 \\ 
 \hline %inserts single line 
 \end{tabular} 
 \caption{Optimal settings configuration for cases I-IV} % title of Table 
 \label{table:optimal_cases} % is used to refer this table in the text 
 \end{table} 
 
-
-Address the fact that things are noisier around 3000 to 4000? I don't know how to explain that...
 
 \clearpage
 \begin{appendices}
