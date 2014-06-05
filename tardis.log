@@ -1,0 +1,1123 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 JUN 2014 15:30
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**tardis.tex
+(./tardis.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2009-06-19, ngerman-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
+ icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, or
+iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
+ lao, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, pol
+ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
+ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
+.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/morefloats/morefloats.sty
+Package: morefloats 2011/02/01 v1.0d Increase limit of unprocessed floats (HMM;
+ DH)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+\c@maxfloats=\count87
+
+
+Package maxfloats Warning: 
+(maxfloats)                Maximum number of possible floats asked for: 100.
+(maxfloats)                LaTeX might run out of dimensions or memory
+(maxfloats)                before this (in which case it will notify you).
+(maxfloats)                 on input line 127.
+
+\bx@S=\insert233
+\bx@T=\insert232
+\bx@U=\insert231
+\bx@V=\insert230
+\bx@W=\insert229
+\bx@X=\insert228
+\bx@Y=\insert227
+\bx@Z=\insert226
+\bx@AA=\insert225
+\bx@AB=\insert224
+\bx@AC=\insert223
+\bx@AD=\insert222
+\bx@AE=\insert221
+\bx@AF=\insert220
+\bx@AG=\insert219
+\bx@AH=\insert218
+\bx@AI=\insert217
+\bx@AJ=\insert216
+\bx@AK=\insert215
+\bx@AL=\insert214
+\bx@AM=\insert213
+\bx@AN=\insert212
+\bx@AO=\insert211
+\bx@AP=\insert210
+\bx@AQ=\insert209
+\bx@AR=\insert208
+\bx@AS=\insert207
+\bx@AT=\insert206
+\bx@AU=\insert205
+\bx@AV=\insert204
+\bx@AW=\insert203
+\bx@AX=\insert202
+\bx@AY=\insert201
+\bx@AZ=\insert200
+\bx@BA=\insert199
+\bx@BB=\insert198
+\bx@BC=\insert197
+\bx@BD=\insert196
+\bx@BE=\insert195
+\bx@BF=\insert194
+\bx@BG=\insert193
+\bx@BH=\insert192
+\bx@BI=\insert191
+\bx@BJ=\insert190
+\bx@BK=\insert189
+\bx@BL=\insert188
+\bx@BM=\insert187
+\bx@BN=\insert186
+\bx@BO=\insert185
+\bx@BP=\insert184
+\bx@BQ=\insert183
+\bx@BR=\insert182
+\bx@BS=\insert181
+\bx@BT=\insert180
+\bx@BU=\insert179
+\bx@BV=\insert178
+\bx@BW=\insert177
+\bx@BX=\insert176
+\bx@BY=\insert175
+\bx@BZ=\insert174
+\bx@CA=\insert173
+\bx@CB=\insert172
+\bx@CC=\insert171
+\bx@CD=\insert170
+\bx@CE=\insert169
+\bx@CF=\insert168
+\bx@CG=\insert167
+\bx@CH=\insert166
+\bx@CI=\insert165
+\bx@CJ=\insert164
+\bx@CK=\insert163
+\bx@CL=\insert162
+\bx@CM=\insert161
+\bx@CN=\insert160
+\bx@CO=\insert159
+\bx@CP=\insert158
+\bx@CQ=\insert157
+\bx@CR=\insert156
+\bx@CS=\insert155
+\bx@CT=\insert154
+\bx@CU=\insert153
+\bx@CV=\insert152
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen103
+\extrarowheight=\dimen104
+\NC@list=\toks15
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+\TX@col@width=\dimen105
+\TX@old@table=\dimen106
+\TX@old@col=\dimen107
+\TX@target=\dimen108
+\TX@delta=\dimen109
+\TX@cols=\count88
+\TX@ftn=\toks16
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen110
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen111
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen112
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks18
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks19
+\eqnshift@=\dimen113
+\alignsep@=\dimen114
+\tagshift@=\dimen115
+\tagwidth@=\dimen116
+\totwidth@=\dimen117
+\lineht@=\dimen118
+\@envbody=\toks20
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/boxedminipage/boxedminipage.sty)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count101
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip48
+\subfigcapskip=\skip49
+\subfigcaptopadj=\dimen121
+\subfigbottomskip=\skip50
+\subfigcapmargin=\dimen122
+\subfiglabelskip=\skip51
+\c@subfigure=\count102
+\c@lofdepth=\count103
+\c@subtable=\count104
+\c@lotdepth=\count105
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2011/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip52
+\subfig@bottom=\skip53
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count106
+\Gm@cntv=\count107
+\c@Gm@tempcnt=\count108
+\Gm@bindingoffset=\dimen123
+\Gm@wd@mp=\dimen124
+\Gm@odd@mp=\dimen125
+\Gm@even@mp=\dimen126
+\Gm@layoutwidth=\dimen127
+\Gm@layoutheight=\dimen128
+\Gm@layouthoffset=\dimen129
+\Gm@layoutvoffset=\dimen130
+\Gm@dimlist=\toks22
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2010/01/09 v3.1m Customizing captions (AR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
+\captionmargin=\dimen131
+\captionmargin@=\dimen132
+\captionwidth=\dimen133
+\caption@indent=\dimen134
+\caption@parindent=\dimen135
+\caption@hangindent=\dimen136
+)
+\c@ContinuedFloat=\count109
+Package caption Info: subfigure package is loaded.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks23
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count110
+\lst@gtempboxa=\box28
+\lst@token=\toks24
+\lst@length=\count111
+\lst@currlwidth=\dimen137
+\lst@column=\count112
+\lst@pos=\count113
+\lst@lostspace=\dimen138
+\lst@width=\dimen139
+\lst@newlines=\count114
+\lst@lineno=\count115
+\lst@maxwidth=\dimen140
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count116
+\lst@skipnumbers=\count117
+\lst@framebox=\box29
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count118
+\c@@ppsavesec=\count119
+\c@@ppsaveapp=\count120
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2011/04/17 v6.82g Hypertext links for LaTeX
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2011/04/23 v1.4 Bundle oberdiek, subset hyperref (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2011/04/23 v1.4 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2011/04/23 v1.4 Subsetting bundle oberdiek (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/04/04 v1.12 Provides string conversions (HO)
+Package: bigintcalc 2011/01/30 v1.2 Expandable big integer calculations (HO)
+Package: bitset 2011/01/30 v1.1 Data type bit set (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provides unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/01/30 v1.0 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/04/23 v1.7 Hooks at very end of document (HO)
+Package atveryend Info: \enddocument detected (standard).
+Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
+Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
+)
+\@linkdim=\dimen141
+\Hy@linkcounter=\count121
+\Hy@pagecounter=\count122
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2011/04/17 v6.82g Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count123
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `final' set `true' on input line 3905.
+Package hyperref Info: Hyper figures OFF on input line 4026.
+Package hyperref Info: Link nesting OFF on input line 4031.
+Package hyperref Info: Hyper index ON on input line 4034.
+Package hyperref Info: Plain pages OFF on input line 4041.
+Package hyperref Info: Backreferencing OFF on input line 4046.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4264.
+\c@Hy@tempcnt=\count124
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4617.
+\Fld@menulength=\count125
+\Field@Width=\dimen142
+\Fld@charsize=\dimen143
+Package hyperref Info: Hyper figures OFF on input line 5701.
+Package hyperref Info: Link nesting OFF on input line 5706.
+Package hyperref Info: Hyper index ON on input line 5709.
+Package hyperref Info: backreferencing OFF on input line 5716.
+Package hyperref Info: Link coloring OFF on input line 5721.
+Package hyperref Info: Link coloring with OCG OFF on input line 5726.
+Package hyperref Info: PDF/A mode OFF on input line 5731.
+LaTeX Info: Redefining \ref on input line 5771.
+LaTeX Info: Redefining \pageref on input line 5775.
+\Hy@abspage=\count126
+\c@Item=\count127
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2011/04/17 v6.82g Hyperref driver for pdfTeX
+\Fld@listcount=\count128
+\c@bookmark@seq@number=\count129
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip54
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 38.
+
+(./tardis.aux)
+\openout1 = `tardis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+
+(/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count130
+\scratchdimen=\dimen144
+\scratchbox=\box30
+\nofMPsegments=\count131
+\nofMParguments=\count132
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count133
+\MPscratchDim=\dimen145
+\MPnumerator=\count134
+\makeMPintoPDFobject=\count135
+\everyMPtoPDFconversion=\toks26
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count136
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring ON on input line 40.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count137
+)
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
+LaTeX Info: Redefining \nameref on input line 40.
+
+(./tardis.out) (./tardis.out)
+\@outlinefile=\write3
+\openout3 = `tardis.out'.
+
+ (./tardis.toc)
+\tf@toc=\write4
+\openout4 = `tardis.toc'.
+
+ [1
+
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 59.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+! Undefined control sequence.
+l.65 ...rofile based on a simple fit ($\rho \proto
+                                                   v^{-7}$) to the W7 model ...
+
+? 
+
+Overfull \hbox (6.03017pt too wide) in paragraph at lines 65--66
+[]\OT1/cmr/m/n/12 The \OT1/pcr/m/n/12 structure \OT1/cmr/m/n/12 sub-sec-tion de
+-ter-mines the den-sity pro-file of the SN through the \OT1/pcr/m/n/12 density
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 71.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 71.
+
+Overfull \hbox (15.74141pt too wide) in paragraph at lines 71--72
+\OT1/cmr/m/n/12 TARDIS cur-rently sup-ports three dif-fer-ent types of line in-
+ter-ac-tion: \OT1/pcr/m/n/12 macroatom\OT1/cmr/m/n/12 , \OT1/pcr/m/n/12 downbra
+nch
+ []
+
+[2] [3]
+</Users/carolinesofiatti/Dropbox/Tardis/packets_and_last.png, id=166, 578.16pt 
+x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/packets_and_last.png Graphic file 
+(type png)
+ <use /Users/carolinesofiatti/Dropbox/Tardis/packets_and_last.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/packets_and_las
+t.png used on input line 131.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+[4]
+</Users/carolinesofiatti/Dropbox/Tardis/excitation.png, id=179, 578.16pt x 433.
+62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/excitation.png Graphic file (type 
+png)
+ <use /Users/carolinesofiatti/Dropbox/Tardis/excitation.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/excitation.png 
+used on input line 168.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/ionization.png, id=180, 578.16pt x 433.
+62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/ionization.png Graphic file (type 
+png)
+ <use /Users/carolinesofiatti/Dropbox/Tardis/ionization.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/ionization.png 
+used on input line 178.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/electron_scattering.png, id=181, 578.16
+pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/electron_scattering.png Graphic fi
+le (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/electron_scattering.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/electron_scatte
+ring.png used on input line 187.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+ [5 </Users/carolinesofiatti/Dropbox/Tardis/packets_and_last.png>] [6 </Users/c
+arolinesofiatti/Dropbox/Tardis/excitation.png> </Users/carolinesofiatti/Dropbox
+/Tardis/ionization.png>] [7 </Users/carolinesofiatti/Dropbox/Tardis/electron_sc
+attering.png>]
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/comparing_packets_ma
+croatom.png, id=199, 578.16pt x 867.24pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/comparing_packe
+ts_macroatom.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/comparing_packet
+s_macroatom.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/pack
+ets/comparing_packets_macroatom.png used on input line 200.
+(pdftex.def)             Requested size: 328.82707pt x 493.23361pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E7_packets.png, id=
+200, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E7_packets.png
+ Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E7_packets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/pack
+ets/1E7_packets.png used on input line 210.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E6_packets.png, id=
+201, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E6_packets.png
+ Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E6_packets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/pack
+ets/1E6_packets.png used on input line 219.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E5_packets.png, id=
+202, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E5_packets.png
+ Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E5_packets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/pack
+ets/1E5_packets.png used on input line 228.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E4_packets.png, id=
+203, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E4_packets.png
+ Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E4_packets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/pack
+ets/1E4_packets.png used on input line 237.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E7_last_packet
+s.png, id=204, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E7_last_p
+ackets.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E7_last_pa
+ckets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last
+_packets/1E7_last_packets.png used on input line 249.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E6_last_packet
+s.png, id=205, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E6_last_p
+ackets.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E6_last_pa
+ckets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last
+_packets/1E6_last_packets.png used on input line 258.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E5_last_packet
+s.png, id=206, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E5_last_p
+ackets.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E5_last_pa
+ckets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last
+_packets/1E5_last_packets.png used on input line 267.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E4_last_packet
+s.png, id=207, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E4_last_p
+ackets.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/1E4_last_pa
+ckets.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last
+_packets/1E4_last_packets.png used on input line 276.
+(pdftex.def)             Requested size: 328.82707pt x 246.61679pt.
+ [8
+
+ </Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/comparing_packets_m
+acroatom.png>] [9 </Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E
+7_packets.png> </Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E6_p
+ackets.png>] [10 </Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E5
+_packets.png> </Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/1E4_pa
+ckets.png>] [11 </Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets
+/1E7_last_packets.png> </Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_
+packets/1E6_last_packets.png>] [12 </Users/carolinesofiatti/Dropbox/Tardis/Mont
+ecarlo/last_packets/1E5_last_packets.png> </Users/carolinesofiatti/Dropbox/Tard
+is/Montecarlo/last_packets/1E4_last_packets.png>] [13
+
+] [14]
+[15
+
+] [16]
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_I.png, id=
+320, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_I.png
+ Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_I.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_macroatom_I.png used on input line 451.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_V.png, id=
+321, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_V.png
+ Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_V.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_macroatom_V.png used on input line 455.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_III.png, i
+d=322, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_III.p
+ng Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_III.pn
+g>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_macroatom_III.png used on input line 459.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_IV.png, id
+=323, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_IV.pn
+g Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_IV.png
+>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_macroatom_IV.png used on input line 463.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_I.png, id
+=324, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_I.pn
+g Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_I.png
+>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_downbranch_I.png used on input line 477.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_V.png, id
+=325, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_V.pn
+g Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_V.png
+>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_downbranch_V.png used on input line 481.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_III.png, 
+id=326, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_III.
+png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_III.p
+ng>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_downbranch_III.png used on input line 485.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_IV.png, i
+d=327, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_IV.p
+ng Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_IV.pn
+g>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_downbranch_IV.png used on input line 489.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_I.png, id=32
+8, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_I.png G
+raphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_I.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_scatter_I.png used on input line 503.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_V.png, id=32
+9, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_V.png G
+raphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_V.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_scatter_V.png used on input line 507.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_III.png, id=
+330, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_III.png
+ Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_III.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_scatter_III.png used on input line 511.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_IV.png, id=3
+31, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_IV.png 
+Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_IV.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_pack
+ets_scatter_IV.png used on input line 515.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_I.png
+, id=332, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_
+I.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_I
+.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_macroatom_I.png used on input line 528.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_V.png
+, id=333, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_
+V.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_V
+.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_macroatom_V.png used on input line 532.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_III.p
+ng, id=334, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_
+III.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_I
+II.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_macroatom_III.png used on input line 536.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_IV.pn
+g, id=335, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_
+IV.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_I
+V.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_macroatom_IV.png used on input line 540.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_I.pn
+g, id=336, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch
+_I.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_
+I.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_downbranch_I.png used on input line 553.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_V.pn
+g, id=337, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch
+_V.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_
+V.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_downbranch_V.png used on input line 557.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_III.
+png, id=338, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch
+_III.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_
+III.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_downbranch_III.png used on input line 561.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_IV.p
+ng, id=339, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch
+_IV.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbranch_
+IV.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_downbranch_IV.png used on input line 565.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_I.png, 
+id=340, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_I.
+png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_I.p
+ng>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_scatter_I.png used on input line 577.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_V.png, 
+id=341, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_V.
+png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_V.p
+ng>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_scatter_V.png used on input line 581.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_III.png
+, id=342, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_II
+I.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_III
+.png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_scatter_III.png used on input line 585.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_IV.png,
+ id=343, 578.16pt x 433.62pt>
+File: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_IV
+.png Graphic file (type png)
+
+<use /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_scatter_IV.
+png>
+Package pdftex.def Info: /Users/carolinesofiatti/Dropbox/Tardis/noise_time_last
+_packets_scatter_IV.png used on input line 589.
+(pdftex.def)             Requested size: 187.89914pt x 140.92482pt.
+
+
+LaTeX Warning: Reference `fig:virtual_pack1E3' on page 17 undefined on input li
+ne 601.
+
+
+LaTeX Warning: Reference `table:noise_virtual_packets_IV' on page 17 undefined 
+on input line 603.
+
+[17
+
+ </Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_I.png> </
+Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_V.png> </Use
+rs/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_III.png> </User
+s/carolinesofiatti/Dropbox/Tardis/noise_time_packets_macroatom_IV.png>]
+[18 </Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_I.png
+> </Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_V.png> 
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_III.png> 
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_downbranch_IV.png>]
+[19 </Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_I.png> <
+/Users/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_V.png> </User
+s/carolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_III.png> </Users/c
+arolinesofiatti/Dropbox/Tardis/noise_time_packets_scatter_IV.png>] [20 </Users/
+carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_I.png> </User
+s/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_V.png> </Us
+ers/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_III.png> 
+</Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_macroatom_IV.pn
+g>] [21 </Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_downbra
+nch_I.png> </Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_down
+branch_V.png> </Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_packets_d
+ownbranch_III.png> </Users/carolinesofiatti/Dropbox/Tardis/noise_time_last_pack
+ets_downbranch_IV.png>] [22 </Users/carolinesofiatti/Dropbox/Tardis/noise_time_
+last_packets_scatter_I.png> </Users/carolinesofiatti/Dropbox/Tardis/noise_time_
+last_packets_scatter_V.png> </Users/carolinesofiatti/Dropbox/Tardis/noise_time_
+last_packets_scatter_III.png> </Users/carolinesofiatti/Dropbox/Tardis/noise_tim
+e_last_packets_scatter_IV.png>]
+(/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+) [23
+
+]
+[24] (./tardis.bbl
+! Undefined control sequence.
+l.6 \newblock {\em \apj
+                       }, 288:679--693, January 1985.
+? 
+! Undefined control sequence.
+l.12 \newblock {\em \apj
+                        }, 651:366--380, November 2006.
+? 
+! Undefined control sequence.
+l.27 \newblock {\em \aap
+                        }, 384:725--735, March 2002.
+? 
+! Undefined control sequence.
+l.32 \newblock {\em \aap
+                        }, 403:261--275, May 2003.
+? 
+! Undefined control sequence.
+l.44 \newblock {\em \apj
+                        }, 286:644--658, November 1984.
+? 
+! Undefined control sequence.
+l.49 \newblock {\em \pasp
+                         }, 123:237--248, February 2011.
+? 
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 746.
+ [25]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 746.
+ (./tardis.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 746.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 746.
+Package rerunfilecheck Info: File `tardis.out' has not changed.
+(rerunfilecheck)             Checksum: B27F8F08CBA80966CF0C3F9B799607A0;1237.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 746.
+ ) 
+Here is how much of TeX's memory you used:
+ 9415 strings out of 493633
+ 151358 string characters out of 3143378
+ 301351 words of memory out of 3000000
+ 12346 multiletter control sequences out of 15000+200000
+ 12216 words of font info for 44 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 36i,9n,40p,911b,1904s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2
+011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2011/tex
+mf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on tardis.pdf (25 pages, 2003892 bytes).
+PDF statistics:
+ 598 PDF objects out of 1000 (max. 8388607)
+ 482 compressed objects within 5 object streams
+ 206 named destinations out of 1000 (max. 500000)
+ 346 words of extra memory for PDF output out of 10000 (max. 10000000)
+

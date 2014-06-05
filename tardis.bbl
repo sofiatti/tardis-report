@@ -1,0 +1,51 @@
+\begin{thebibliography}{1}
+
+\bibitem{lucy}
+D.~C. {Abbott} and L.~B. {Lucy}.
+\newblock {Multiline transfer and the dynamics of stellar winds}.
+\newblock {\em \apj}, 288:679--693, January 1985.
+
+\bibitem{sedona}
+D.~{Kasen}, R.~C. {Thomas}, and P.~{Nugent}.
+\newblock {Time-dependent Monte Carlo Radiative Transfer Calculations for
+  Three-dimensional Supernova Spectra, Light Curves, and Polarization}.
+\newblock {\em \apj}, 651:366--380, November 2006.
+
+\bibitem{tardis}
+Wolfgang~E. Kerzendorf and Stuart~A. Sim.
+\newblock A spectral synthesis code for rapid modelling of supernovae.
+\newblock 2014.
+
+\bibitem{artis}
+M.~Kromer and S.~A. Sim.
+\newblock Time-dependent 3d spectrum synthesis for type ia supernovae.
+\newblock 2009.
+
+\bibitem{lucy_2002}
+L.~B. {Lucy}.
+\newblock {Monte Carlo transition probabilities}.
+\newblock {\em \aap}, 384:725--735, March 2002.
+
+\bibitem{lucy_2003}
+L.~B. {Lucy}.
+\newblock {Monte Carlo transition probabilities. II.}
+\newblock {\em \aap}, 403:261--275, May 2003.
+
+\bibitem{w7}
+K.~{Nomoto}, F.-K. {Thielemann}, and S.~{Miyaji}.
+\newblock {The triple alpha reaction at low temperatures in accreting white
+  dwarfs and neutron stars.}
+\newblock {\em Max Planck Institut fur Astrophysik Report}, 171, 1984.
+
+\bibitem{80s}
+K.~{Nomoto}, F.-K. {Thielemann}, and K.~{Yokoi}.
+\newblock {Accreting white dwarf models of Type I supernovae. III - Carbon
+  deflagration supernovae}.
+\newblock {\em \apj}, 286:644--658, November 1984.
+
+\bibitem{synapps}
+R.~C. {Thomas}, P.~E. {Nugent}, and J.~C. {Meza}.
+\newblock {SYNAPPS: Data-Driven Analysis for Supernova Spectroscopy}.
+\newblock {\em \pasp}, 123:237--248, February 2011.
+
+\end{thebibliography}

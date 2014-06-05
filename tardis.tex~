@@ -1,0 +1,748 @@
+\documentclass[letterpaper,12pt]{article}
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of ``TeX Unbound'' for suggested values.
+% See pp. 199-200 of Lamport's ``LaTeX'' book for details.
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{1}% max fraction of floats at top
+\renewcommand{\bottomfraction}{1}% max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}% require fuller float pages
+% remember to use [htp] or [htpb] for placement
+
+\usepackage[maxfloats=100]{morefloats}
+\usepackage{tabularx,amsmath,boxedminipage, graphicx, subfigure, courier}
+\usepackage[margin=1in,letterpaper]{geometry} % this shaves off default margins which are too big
+\usepackage{caption}
+\usepackage{enumerate}
+%\usepackage{biblatex}
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[toc,page]{appendix}
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\hypersetup{
+  colorlinks=true,       % false: boxed links; true: colored links
+  linkcolor=blue,          % color of internal links
+  citecolor=blue,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=blue         
+}
+\graphicspath{ {/Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/packets/} {/Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/virtual_packets/} {/Users/carolinesofiatti/Dropbox/Tardis/Montecarlo/last_packets/} {/Users/carolinesofiatti/Dropbox/Tardis/Plasma/}{/Users/carolinesofiatti/Dropbox/Tardis/} }
+\begin{document}
+
+\title{Does TARDIS do what it does fast enough?}
+\author{Caroline Sofiatti}
+%\date{}
+\date{\today}
+\maketitle
+\tableofcontents
+
+\section{\label{sec:intro}Introduction}
+
+Type Ia supernova (SN Ia) modeling has greatly evolved since the first one-dimensional SN model created in the early 80's\cite{80s}. Today, full explosion models such as ARTIS \cite{artis} and SEDONA \cite{sedona} are the state-of-the-art and present a much more complete but complex representation of SNe. Such robustness comes at the expense of execution time, even with parallelism. These models are too costly to use directly in large parameter-space studies. TARDIS (see \cite{tardis}) attempts to address this problem.
+
+\section{\label{sec:about_tardis} About TARDIS}
+TARDIS is an open-source code for rapid modeling of SN spectra. The code uses indivisible energy-packet Monte Carlo (MC) methods \cite{lucy} \cite{lucy_2002} \cite{lucy_2003} to obtain a description of the SN's plasma state and to compute a synthetic spectrum. 
+
+Unlike SYNAPPS \cite{synapps}, a simple approach for spectral line identification, TARDIS is an analysis tool that attempts to balance accuracy and computational expense according to the needs of a specific study. It is based on the same methods used by ARTIS, but users should keep in mind that TARDIS is much more limited. Finally, TARDIS uses the YAML markup language for its configuration files. An example of a configuration file follows in appendix \ref{sec:YAML_file}.
+
+\subsection{\label{sec:config} Configuration File}
+A TARDIS configuration file is organized into three main sections: \texttt{model} - where the density profile and the elemental abundances are set, \texttt{plasma} - where plasma conditions such as ionization and excitation can be fixed, and \texttt{montecarlo} - where the settings for the MC are established. 
+
+\subsubsection{\label{sec:config_model} Model}
+
+A TARDIS model is spherically symmetric. The computational domain is discretized into multiple spherical shells. For each of these shells, the density and elemental abundances must be specified. The \texttt{model} section of the TARDIS configuration file contains two subsections: \texttt{structure} and \texttt{abundances}. 
+
+The \texttt{structure} subsection determines the density profile of the SN through the \texttt{density} parameter. The default on the original YAML file is set to \texttt{branch85\_w7}. This is a density profile based on a simple fit ($\rho \proto v^{-7}$) to the W7 model of Nomoto et al. \cite{w7}. Nevertheless, an arbitrary density can be included, if required. This can be achieved by setting the abundance parameter \texttt{type} to \texttt{file} and including an arbitrary density profile as an ASCII file. 
+
+The \texttt{abundances} section is set as uniform on the original YAML file. Similarly to \texttt{density}, \texttt{abundance} can include stratified elemental abundances. This can be done by changing \texttt{type} to \texttt{file} and including an ASCII file that specifies the abundances for each shell.  
+
+\subsubsection{\label{sec:config_plasma} Plasma}
+
+TARDIS currently supports three different types of line interaction: \texttt{macroatom}, \texttt{downbranch} and \texttt{scatter}. Macro-atoms \cite{lucy_2002} are a conceptual construct that facilitates the derivation and implementation of the MC transition probabilities. They contribute to an accurate treatment of the line interaction. More specifically, macro-atoms are a quanta of matter whose properties are such that their interactions with energy packets (see \S ~\ref{sec:config_monte}) asymptotically reproduce the reprocessing of radiation by macroscopic volume elements of a gas that is in statistical and radiative equilibrium. Additionally, the line interaction can be treated approximately, assuming either resonant scattering or downward branching following absorption. 
+
+TARDIS also allows the user to enable or disable electron scattering. Disabling scattering is mostly used for debugging purposes and to compare results to SYNAPPS (see fig. ~\ref{fig:scattering}). 
+
+Also, there are currently two ionization options: \texttt{LTE}, which calculates the ionization fractions from the Saha-Boltzmann equation, and \texttt{nebular}, which calculates the ionization fractions from the nebular approximation explained by Equation 3 in \cite{tardis}(see fig.~\ref{fig:ionization}). 
+
+Finally, the excitation modes can be \texttt{LTE} or \texttt{dilute LTE}. \texttt{LTE} calculates level populations from the Boltzmann equation and \texttt{dilute LTE} uses reduced excited level populations (see fig. ~\ref{fig:excitation}).
+
+\subsubsection{\label{sec:config_monte}Montecarlo}
+
+TARDIS is an implementation of the energy-packet MC. According to this formalism \cite{lucy} \cite{lucy_2002} \cite{lucy_2003}, packets are indivisible, monochromatic quanta of radiant energy. This constraint is used because it leads to a simple code. 
+
+The MC radiation field is generated iteratively and one can specify a different number of packets for the last MC simulation. We will discuss in \S ~\ref{sec:sn_last} how this affects the signal-to-noise ratio (S/N) of the final spectrum.
+
+Also during this last simulation, a set of test packets referred to as virtual packets are created. The purpose of these virtual packets is variance reduction. 
+  
+One can set the number of packets, last packets, and virtual packets in the  \texttt{montecarlo} section.
+
+\subsection{Future versions of TARDIS}
+According to \cite{tardis}, in the near future TARDIS will incorporate additional physics such as bound-free/ thermalization processes. Another future implementation is to compute opacities to handle radiation-matter interactions.
+
+\subsection{\label{sec:about_report} About this report}
+
+This report aims at introducing TARDIS and at analyzing its performance in order to characterize the tradeoff between quality of fits and execution time for a run. With this information, potential SNfactory users will be able to determine which settings they should pick when considering a high quality publication plot or a fast exploratory run.
+
+We conduct an exectution time vs. S/N trade study as follows: We start with the original configuration file then varied the number of packets, last packets, and virtual packets, since these variables significantly impact the noisiness of the output. We then repeated this for three different line interation settings: \texttt{macroatom}, \texttt{downbranch} and \texttt{scatter} (see ~\ref{sec:monte_spectra}). The same procedure was extended to three other settings configurations that are slight modifications from the original, for the sake of comparison. See table ~\ref{table:cases}.
+
+We compare the spectrum to a very high S/N spectrum in order to obtain a value for the noise and we extract the execution time of the run from the TARDIS log file.        
+
+\begin{itemize}
+\item All the runs have the same configuration as the original TARDIS YAML file that follows in the appendix (see appendix ~\ref{sec:YAML_file}). The same uniform abundance profile is used throughtout this study. This abundance profile follows in table ~\ref{table:abundance}. Moreover, for each case, only the YAML entry under investigation was changed unless otherwise specified. 
+
+\item TARDIS creates spectra from 500\AA to 20000\AA. In this report, I only use information contained in the range from 3000\AA to 10000\AA, since this is the range of a typical SNfactory spectrum in the rest frame.
+
+\item The reference spectrum is computed with  $10^7$ packets, $10^7$ last packets and 100 virtual packets (essentially infinite S/N). See fig. ~\ref{fig:best_fit}. Note that this spectrum is UV bright for a SN Ia. In order to achieve a more realistic simulation, the TARDIS configurations have to modified. We expect the execution times to be higher for a more realistic simulation, because of less line blanketing in the UV. Nevertheless, the S/N ratios should remain the same. Therefore, the results presented in this report will still be valid.
+
+\item Noise is the residual luminosity of one spectrum relative to the reference spectrum divided by the mean luminosity of the reference spectrum. 
+\end{itemize}
+
+\begin{table}[ht] 
+  \centering % used for centering table 
+  \begin{tabular}{c c} % centered columns (4 columns) 
+    \hline\hline %inserts double horizontal lines 
+    Element & Abundance \\ [0.5ex] % inserts table 
+    %heading 
+    \hline % inserts single horizontal line 
+    O & 0.19 \\ % inserting body of the table 
+    Mg & 0.03 \\ 
+    Si & 0.52 \\ 
+    S & 0.19 \\ 
+    Ar & 0.04 \\ 
+    Ca & 0.03 \\ [1ex]
+    \hline %inserts single line 
+  \end{tabular}
+  \caption{Uniform Abundance Settings} % title of Table  
+  \label{table:abundance} % is used to refer this table in the text  
+\end{table} 
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{packets_and_last}
+  \caption{  
+    \label{fig:best_fit}
+    Reference simulation spectra. The number of virtual packets is 100. Time since explosion is 13 days.
+}
+\end{figure}
+
+\subsubsection{\label{sec:cases} Cases I - IV}
+
+Cases I-IV represent a set of fixed values as described in table ~\ref{table:cases}. Case I represents the settings of the original configuration file. Case II is a slight modification from case I, where the number of packets and last packets increase by order 10. The number of virtual packets is set to zero. Similarly, case IV is obtained by decreasing the settings of case I by order 10. Cases II and III differ only by number of virtual packets. This allows us to isolate the effect of increasing the number of virtual packets.
+  
+\begin{table}[ht] 
+\centering % used for centering table 
+\begin{tabular}{c c c c} % centered columns (4 columns) 
+\hline\hline %inserts double horizontal lines 
+Case & Packets($10^3$) & Last Packets ($10^4$) & Virtual Packets\\ [0.5ex] % inserts table 
+%heading 
+\hline % inserts single horizontal line 
+I   & 40 & 10 & 10 \\ % inserting body of the table 
+II  & 400 & 100 & 0 \\ 
+III & 400 & 100 & 10 \\ 
+IV  & 4 & 1 & 10 \\ 
+\hline %inserts single line 
+\end{tabular} 
+\caption{Settings configuration for cases I-IV} % title of Table 
+\label{table:cases} % is used to refer this table in the text 
+\end{table} 
+
+\subsubsection{\label{sec:my_compyter} About my computer}
+All the runs contained in this report were performed on a 2011 MacBook Pro with a 2.4 GHz Intel Core i5 processor and 4 GB 1333 MHz DDR3 memory. We consider the execution time to be the number of seconds printed on the last line of the TARDIS log file. E.g., \texttt{tardis.simulation - INFO - Finished in 20 iterations and took 40.23 s}.
+
+
+\section{\label{sec:plasma_spectra}Plasma: analyzing spectra}
+As of today, four of the variables in the plasma section can be changed. The line interation type can be \texttt{macroatom}, \texttt{downbranch} or \texttt{scatter} as illustrated by the previous figures in this report. The excitation can be either \texttt{LTE} or \texttt{dilute LTE} (see fig.~\ref{fig:excitation}). The ionization can be either \texttt{LTE} or \texttt{nebular} (see fig.~\ref{fig:ionization}) and electron scattering can be either enabled or disabled (see fig.~\ref{fig:scattering}).  
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{excitation}
+  \caption{
+    \label{fig:excitation}
+    Typical difference in spectrum between \texttt{LTE} and \texttt{Dilute LTE} excitation. Fixed values: Number of packets is $4 \times 10^4$, last number of packets is $10^5$ and the number of virtual packets is 10. Line interaction type is macroatom and time since explosion is 13 days.
+} 
+
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{ionization}
+  \caption{
+    \label{fig:ionization}
+    Typical difference in spectrum between \texttt{LTE} and \texttt{Nebular} ionization. Fixed values: Number of packets is $4 \times 10^4$, last number of packets is $10^5$ and the number of virtual packets is 10. Line interaction type is macroatom and time since explosion is 13 days. Excitation is set to dilute LTE.
+}
+\end{figure} 
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{electron_scattering}
+  \caption{
+    \label{fig:scattering}
+    Effect of electron scattering. Fixed values: Number of packets is $4 \times 10^4$, last number of packets is $10^5$ and the number of virtual packets is 10. Line interaction type is macroatom and time since explosion is 13 days.
+}
+\end{figure}  
+
+\clearpage
+\section{\label{sec:monte_spectra} Monte Carlo: analyzing spectra}
+\subsection{Packets}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{comparing_packets_macroatom}
+  \caption{
+    \label{fig:comparing_packets}
+    Each subplot shows a pair of very similar spectra, indicating that $10^4$ packets are sufficient for computing the radiative equilibrium temperature.
+}
+\end{figure}
+
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E7_packets}
+  \caption{
+    \label{fig:pack1E7}
+    Luminosity as a function of wavelength for $10^7$ packets. The luminosity is offset for each case above case I. Time since explosion is 13 days. 
+}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E6_packets}
+  \caption{
+    \label{fig:pack1E6}
+    Luminosity as a function of wavelength for $10^6$ packets. The luminosity is offset for each case above case I. Time since explosion is 13 days.
+}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E5_packets}
+  \caption{
+    \label{fig:pack1E5}
+    Luminosity as a function of wavelength for $10^5$ packets. The luminosity is offset for each case above case I. Time since explosion is 13 days.
+}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E4_packets}
+  \caption{
+    \label{fig:pack1E4}
+    Luminosity as a function of wavelength for $10^4$ packets. The luminosity is offset for each case above case I. Time since explosion is 13 days.
+}
+\end{figure}
+
+\subsection {Last packets}
+
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E7_last_packets}
+  \caption{
+    \label{fig:last_pack1E7}
+    Luminosity as a function of wavelength for $10^7$ last packets. The luminosity is offset for each case above case I. Time since explosion is 13 days.
+}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E6_last_packets}
+  \caption{
+    \label{fig:last_pack1E6}
+    Luminosity as a function of wavelength for $10^6$ last packets. The luminosity is offset for each case above case I. Time since explosion is 13 days.
+}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E5_last_packets}
+  \caption{
+    \label{fig:last_pack1E5}
+    Luminosity as a function of wavelength for $10^5$ last packets. The luminosity is offset for each case above case I. Time since explosion is 13 days.
+}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\columnwidth]{1E4_last_packets}
+  \caption{
+    \label{fig:last_pack1E4}
+    Luminosity as a function of wavelength for $10^4$ last packets. The luminosity is offset for each case above case I. Time since explosion is 13 days.
+}
+\end{figure}
+
+
+\clearpage
+\section{\label{sec:sn} Monte Carlo: signal to noise}
+
+\subsection{\label{sec:sn_packets}Packets}
+
+\begin{table}[htpb]
+\begin{center}
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 2990.52 & 0.109 & 15251.93 & 0.049 & 2991.03 & 0.048 \\ 
+$10^6$ & 322.09 & 0.118 & 299.39 & 0.046 & 330.66 & 0.051 \\ 
+$10^5$ & 57.85 & 0.116 & 65.45 & 0.049 & 52.99 & 0.045 \\ 
+$10^4$ & 34.20 & 0.126 & 31.79 & 0.050 & 30.71 & 0.049 \\ 
+$10^3$ &\textbf{28.04} &  \textbf{0.095} &  \textbf{30.55} &  \textbf{0.046} &  \textbf{26.62} &  \textbf{0.047} \\ 
+$10^2$ & 28.76 & 0.161 & 27.91 & 0.071 & 27.05 & 0.063 \\ 
+$10^1$ & 28.20 & 0.389 & 27.78 & 0.097 & 27.41 & 0.141 \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_packets_macroatom_I}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_downbranch_I}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_scatter_I}}\\ \hline 
+\end{tabular}
+\caption{CASE I for number of packets. Fixed values: last number of packets is $10^5$ and the number of virtual packets is 10. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\label{table:noise_packets_I} % spaces are big no-no withing labels
+\end{center}
+\end{table}
+
+\begin{table}[htpb]
+\begin{center}
+\label{table:noise_packets_II} % spaces are big no-no withing labels
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 3260.99 & 0.122 & 3025.44 & 0.085 & 6256.71 & 0.089 \\ 
+$10^6$ & 360.16 & 0.121 & 330.81 & 0.086 & 356.91 & 0.089 \\ 
+$10^5$ & 58.00 & 0.121 & 54.37 & 0.087 & 53.67 & 0.090 \\ 
+$10^4$ & 29.04 & 0.117 & 27.46 & 0.087 & 26.97 & 0.083 \\ 
+$10^3$ & 25.87 & 0.114 & 26.26 & 0.086 & 24.10 & 0.091 \\ 
+$10^2$ & 27.56 & 0.143 & 24.41 & 0.097 & 26.08 & 0.087 \\ 
+$10^1$ & 26.72 & 0.399 & 24.74 & 0.123 & 24.15 & 0.098 \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_packets_macroatom_II}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_downbranch_II}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_scatter_II}}\\ \hline 
+\end{tabular}
+\caption{CASE II for number of packets. Fixed values: last number of packets is $10^6$ and the number of virtual packets is 100. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\end{center}
+\end{table}
+
+\begin{table}[htpb]
+\begin{center}
+\label{table:noise_packets_III} % spaces are big no-no withing labels
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 3317.59 & 0.107 & 3204.63 & 0.066 & 3453.88 & 0.065 \\ 
+$10^6$ & 534.01 & 0.108 & 481.55 & 0.065 & 560.64 & 0.066 \\ 
+$10^5$ & 212.11 & 0.107 & 230.55 & 0.066 & 270.44 & 0.066 \\ 
+$10^4$ & 184.32 & 0.106 &  \textbf{206.10} &  \textbf{0.066} &  \textbf{232.46} &  \textbf{0.062} \\ 
+$10^3$ &  \textbf{183.08} &  \textbf{0.101} &  \textbf{196.23} &  \textbf{0.066} &  \textbf{217.11} &  \textbf{0.072} \\ 
+$10^2$ & 187.15 & 0.130 & 189.80 & 0.078 & 213.09 & 0.068 \\ 
+$10^1$ & 181.13 & 0.388 & 194.59 & 0.114 & 190.78 & 0.077 \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_packets_macroatom_III}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_downbranch_III}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_scatter_III}}\\ \hline 
+\end{tabular}
+\caption{CASE III for number of packets. Fixed values: last number of packets is $10^6$ and the number of virtual packets is 10. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\end{center}
+\end{table}
+
+\begin{table}[htpb]
+\begin{center}
+\label{table:noise_packets_IV} % spaces are big no-no withing labels
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 2889.75 & 0.179 & 2942.73 & 0.153 & 2780.58 & 0.150 \\ 
+$10^6$ & 306.79 & 0.179 & 289.60 & 0.162 & 290.00 & 0.169 \\ 
+$10^5$ & 41.88 & 0.176 & 38.89 & 0.159 &  42.60 &  0.158 \\ 
+$10^4$ &  \textbf{15.32} &  \textbf{0.202} &  \textbf{13.32} &  \textbf{0.174} &  \textbf{15.52} &  \textbf{0.170} \\ 
+$10^3$ &  \textbf{12.38} &  \textbf{0.178} &  \textbf{10.96} &  \textbf{0.159} & 11.79 & 0.173 \\ 
+$10^2$ & 12.55 & 0.221 &  \textbf{10.75} &  \textbf{0.176} &  \textbf{10.35} &  \textbf{0.173} \\ 
+$10^1$ & 12.68 & 0.395 &  \textbf{10.83} &  \textbf{0.178} &  \textbf{10.26} &  \textbf{0.183} \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_packets_macroatom_IV}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_downbranch_IV}} & \multicolumn{2}{c|}{~\ref{fig:noise_packets_scatter_IV}}\\ \hline 
+\end{tabular}
+\caption{CASE IV for number of packets. Fixed values: last number of packets is $10^4$ and the number of virtual packets is 10. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\end{center}
+\end{table}
+
+\clearpage
+\subsection{\label{sec:sn_last}Last packets}
+
+\begin{table}[htpb]
+\begin{center}
+\label{table:noise_last_packets_I} % spaces are big no-no withing labels
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Last Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 2247.55 & 0.105 & 1589.88 & 0.010 & 1899.35 & 0.007 \\ 
+$10^6$ & 201.72 & 0.106 & 183.30 & 0.018 & 197.30 & 0.016 \\ 
+$10^5$ &  \textbf{44.77} &  \textbf{0.113} &  \textbf{42.24} &  \textbf{0.049} &  \textbf{40.08} &  \textbf{0.048} \\ 
+$10^4$ & 26.41 & 0.179 & 25.60 & 0.150 &  25.46 & 0.155 \\ 
+$10^3$ & 25.11 & 0.473 & 24.50 & 0.473 & 27.93 & 0.487 \\ 
+$10^2$ & 28.91 & 1.486 & 24.20 & 1.593 & 23.94 & 1.375 \\ 
+$10^1$ & 25.17 & 3.859 & 21.88 & 4.216 & 20.17 & 4.190 \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_last_packets_macroatom_I}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_downbranch_I}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_scatter_I}}\\ \hline 
+\end{tabular}
+\caption{CASE I for last number of packets. Fixed values: number of packets is $4 \times 10^4$ and the number of virtual packets is 10. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\end{center}
+\end{table}
+
+\begin{table}[htpb]
+\begin{center}
+\label{table:noise_last_packets_II} % spaces are big no-no withing labels
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Last Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 274.38 & 0.107 & 268.26 & 0.067 & 280.95 & 0.067 \\ 
+$10^6$ & 163.42 & 0.119 & 135.05 & 0.085 & 140.32 & 0.086 \\ 
+$10^5$ & 136.37 & 0.200 & 122.11 & 0.188 & 125.27 & 0.192 \\ 
+$10^4$ & 135.73 & 0.579 & 121.12 & 0.580 & 124.48 & 0.603 \\ 
+$10^3$ & 129.09 & 1.919 & 120.52 & 1.958 & 122.16 & 1.850 \\ 
+$10^2$ & 131.19 & 5.221 & 125.98 & 5.105 & 122.66 & 5.194 \\ 
+$10^1$ & 133.83 & 17.012 & 121.13 & 18.014 & 127.79 & 18.601 \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_last_packets_macroatom_II}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_downbranch_II}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_scatter_II}}\\ \hline 
+\end{tabular}
+\caption{CASE II for last number of packets. Fixed values: number of packets is $4 \times 10^5$ and the number of virtual packets is 100. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\end{center}
+\end{table}
+
+\begin{table}[htpb]
+\begin{center}
+\label{table:noise_last_packets_III} % spaces are big no-no withing labels
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Last Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 1775.22 & 0.106 & 1744.39 & 0.064 & 1748.00 & 0.064 \\ 
+$10^6$ & 287.85 & 0.105 & 287.89 & 0.065 & 282.70 & 0.066 \\ 
+$10^5$ &  \textbf{139.57} &  \textbf{0.116} &  \textbf{138.05} &  \textbf{0.079} &  \textbf{135.33} &  \textbf{0.081} \\ 
+$10^4$ & 124.93 & 0.183 & 121.99 & 0.162 & 119.67 & 0.153 \\ 
+$10^3$ & 122.96 & 0.503 & 126.50 & 0.467 & 118.56 & 0.513 \\ 
+$10^2$ & 123.22 & 1.327 & 125.18 & 1.402 & 117.03 & 1.255 \\ 
+$10^1$ & 122.95 & 4.611 & 119.71 & 4.411 & 117.13 & 4.036 \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_last_packets_macroatom_III}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_downbranch_III}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_scatter_III}}\\ \hline 
+\end{tabular}
+\caption{CASE III for last number of packets. Fixed values: number of packets is $4 \times 10^5$ and the number of virtual packets is 10. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\end{center}
+\end{table}
+
+\begin{table}[htpb]
+\begin{center}
+\label{table:noise_last_packets_IV} % spaces are big no-no withing labels
+\begin{tabular}{|c|cc|cc|cc|} \cline{2-7}
+\multicolumn{1}{c |}{} & \multicolumn{2}{c| }{Macroatom} & \multicolumn{2}{c|}{Downbranch} & \multicolumn{2}{c|}{Scatter}\\ \hline 
+Last Packets & t(s)   & Noise & t(s)     & Noise   & t(s)    & Noise\\ \hline
+$10^7$ & 1717.38 & 0.101 & 1786.01 & 0.063 & 1750.40 & 0.061 \\ 
+$10^6$ & 189.30 & 0.102 & 184.42 & 0.066 & 177.22 & 0.065 \\ 
+$10^5$ &  \textbf{30.55} &  \textbf{0.107} &  \textbf{27.95} &  \textbf{0.076} &  \textbf{27.25} &  \textbf{0.073} \\ 
+$10^4$ & 15.33 & 0.175 & 11.80 & 0.164 & 11.30 & 0.161 \\ 
+$10^3$ & 12.32 & 0.495 & 12.00 & 0.509 & 10.33 & 0.517 \\ 
+$10^2$ & 11.82 & 1.734 & 10.34 & 1.702 & 9.90 & 1.733 \\ 
+$10^1$ & 12.03 & 5.142 & 9.89 & 6.258 & 9.54 & 6.370 \\ \hline \hline 
+\multicolumn{1}{|c |}{Figure} & \multicolumn{2}{c| }{~\ref{fig:noise_last_packets_macroatom_IV}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_downbranch_IV}} & \multicolumn{2}{c|}{~\ref{fig:noise_last_packets_scatter_IV}}\\ \hline 
+\end{tabular}
+\caption{CASE IV for last number of packets. Fixed values: number of packets is $4 \times 10^3$ and the number of virtual packets is 10. t(s) is the execution time in seconds. Noise is the normalized standard deviation (see discussion above). The best payoff is indicated by numbers in bold (see respective figure).}
+\end{center}
+\end{table}
+
+\clearpage
+
+\begin{figure}[ht!]
+  \begin{center}
+    \subfigure{
+      \label{fig:noise_packets_macroatom_I}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_macroatom_I}  
+    }
+    \subfigure{
+      \label{fig:noise_packets_macroatom_II}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_macroatom_V}  
+    }\\ 
+    \subfigure{
+      \label{fig:noise_packets_macroatom_III}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_macroatom_III}  
+    }
+    \subfigure{
+      \label{fig:noise_packets_macroatom_IV}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_macroatom_IV}  
+    }
+  \end{center}
+  \caption{Noise and execution time as a function of packets for macroatom.
+  }
+  \label{fig:noise_packets_macroatom}
+\end{figure}
+
+
+
+\begin{figure}[ht!]
+  \begin{center}
+    \subfigure{
+      \label{fig:noise_packets_downbranch_I}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_downbranch_I}  
+    }
+    \subfigure{
+      \label{fig:noise_packets_downbranch_II}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_downbranch_V}  
+    }\\ 
+    \subfigure{
+      \label{fig:noise_packets_downbranch_III}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_downbranch_III}  
+    }
+    \subfigure{
+      \label{fig:noise_packets_downbranch_IV}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_downbranch_IV}  
+    }
+  \end{center}
+  \caption{Noise and execution time as a function of packets for downbranch.
+  }
+  \label{fig:noise_packets_downbranch}
+\end{figure}
+
+
+
+\begin{figure}[ht!]
+  \begin{center}
+    \subfigure{
+      \label{fig:noise_packets_scatter_I}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_scatter_I}  
+    }
+    \subfigure{
+      \label{fig:noise_packets_scatter_II}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_scatter_V}  
+    }\\ 
+    \subfigure{
+      \label{fig:noise_packets_scatter_III}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_scatter_III}  
+    }
+    \subfigure{
+      \label{fig:noise_packets_scatter_IV}
+      \includegraphics[width=0.4\textwidth]{noise_time_packets_scatter_IV}  
+    }
+  \end{center}
+  \caption{Noise and execution time as a function of packets for scatter.
+  }
+  \label{fig:noise_packets_scatter}
+\end{figure}
+
+
+\begin{figure}[ht!]
+  \begin{center}
+    \subfigure{
+      \label{fig:noise_last_packets_macroatom_I}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_macroatom_I}  
+    }
+    \subfigure{
+      \label{fig:noise_last_packets_macroatom_II}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_macroatom_V}  
+    }\\ 
+    \subfigure{
+      \label{fig:noise_last_packets_macroatom_III}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_macroatom_III}  
+    }
+    \subfigure{
+      \label{fig:noise_last_packets_macroatom_IV}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_macroatom_IV}  
+    }
+  \end{center}
+  \caption{Noise and execution time as a function of last packets for macroatom.
+  }
+  \label{fig:noise_last_packets_macroatom}
+\end{figure}
+
+
+\begin{figure}[ht!]
+  \begin{center}
+    \subfigure{
+      \label{fig:noise_last_packets_downbranch_I}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_downbranch_I}  
+    }
+    \subfigure{
+      \label{fig:noise_last_packets_downbranch_II}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_downbranch_V}  
+    }\\ 
+    \subfigure{
+      \label{fig:noise_last_packets_downbranch_III}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_downbranch_III}  
+    }
+    \subfigure{
+      \label{fig:noise_last_packets_downbranch_IV}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_downbranch_IV}  
+    }
+  \end{center}
+  \caption{Noise and execution time as a function of last packets for downbranch.
+  }
+  \label{fig:noise_last_packets_downbranch}
+\end{figure}
+
+\begin{figure}[ht!]
+  \begin{center}
+    \subfigure{
+      \label{fig:noise_last_packets_scatter_I}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_scatter_I}  
+    }
+    \subfigure{
+      \label{fig:noise_last_packets_scatter_II}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_scatter_V}  
+    }\\ 
+    \subfigure{
+      \label{fig:noise_last_packets_scatter_III}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_scatter_III}  
+    }
+    \subfigure{
+      \label{fig:noise_last_packets_scatter_IV}
+      \includegraphics[width=0.4\textwidth]{noise_time_last_packets_scatter_IV}  
+    }
+  \end{center}
+  \caption{Noise and execution time as a function of last packets for scatter.
+  }
+  \label{fig:noise_last_packets_scatter}
+\end{figure}
+
+
+\section{Conclusion}
+Virtual packets are not as relevant to yielding a low S/N as the number of last packets. We reach this by analyzing figs. ~\ref{fig:pack1E7}-~\ref{fig:pack1E4}. In these figures, only virtual packets and last packets change from case to case. The fact that cases II and III have similar noise (though case III is slightly noisier) indicates that the number of last packets is the main determinant of the noise. Recall that cases II and III have the same number of last packets. 
+
+ Moreover, fig. ~\ref{fig:last_pack1E7} shows that if the number of packets is high (above $\sim 10^7$), the number of packets and the number of virtual packets do not play an important role in determining the noisiness of the simulation. As the number of last packets decrease, figs ~\ref{fig:last_pack1E6},  ~\ref{fig:last_pack1E5}, and  ~\ref{fig:last_pack1E4} show that the number of virtual packets are a better indicator of the noise than the number of packets. Finally, case IV of fig. ~\ref{fig:virtual_pack1E3} suggests that one can obtain spectra with a relatively low S/N even if the number of last packets and the number of packets are low ($\sim 10^5$ and $\sim 10^4$, respectively). Nevertheless, there is a loss of accuracy. Note that the spectrum for \texttt{macroatom} differs from the spectrum for \texttt{downbranch} more noticeably than in the other plots.
+
+Finally, optimal settings for the number of packets, last packets and virtual packets, are inferred from tables ~\ref{table:noise_packets_I}-~\ref{table:noise_virtual_packets_IV}. The most occurring values are summarized in table ~\ref{table:optimal_cases}.  
+  
+\begin{table}[ht] 
+\centering % used for centering table 
+\begin{tabular}{|c| c c c c|} % centered columns (4 columns) 
+\cline{2-5}
+\cline{2-5}
+\multicolumn{1}{c |}{} & \multicolumn{1}{c}{Case I} & \multicolumn{1}{c}{Case II} & \multicolumn{1}{c}{Case III} & \multicolumn{1}{c|}{Case IV}\\ \hline
+\hline % inserts single horizontal line 
+Packets         & $10^3$ & $10^3$ & $10^3$ & $10^4$ \\ % inserting body of the table 
+Last packets    & $10^5$ & $10^4$ & $10^5$ & $10^5$ \\ 
+Virtual packets & 10 & 10 & - & 100 \\ 
+\hline %inserts single line 
+\end{tabular} 
+\caption{Optimal settings configuration for cases I-IV} % title of Table 
+\label{table:optimal_cases} % is used to refer this table in the text 
+\end{table} 
+
+
+Address the fact that things are noisier around 3000 to 4000? I don't know how to explain that...
+
+\clearpage
+\begin{appendices}
+\section{\label{sec:YAML_file} Original YAML file}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\begin{lstlisting}
+#New configuration for TARDIS based on YAML
+#IMPORTANT any pure floats need to have a +/- after the e e.g. 2e+5
+#Hopefully pyyaml will fix this soon.
+---
+#Currently only simple1d is allowed
+tardis_config_version: v1.0
+supernova:
+    luminosity_requested: 9.44 log_lsun
+    time_explosion: 13 day
+#    distance : 24.2 Mpc
+
+
+atom_data: kurucz_atom_pure_simple.h5
+
+
+model:
+        
+    
+    structure:
+        type: specific
+
+
+        velocity:
+            start : 1.1e4 km/s
+            stop : 20000 km/s
+            num: 20
+        
+        
+        density:
+            #showing different configuration options separated by comments
+            #simple uniform:
+            #---------------
+            #type : uniform
+            #value : 1e-40 g/cm^3
+            #---------------
+
+            #branch85_w7 - fit of seven order polynomial to W7 (like Branch 85):
+            #---------------
+            type : branch85_w7
+            
+            # default, no need to change!
+            #time_0 : 19.9999584 s
+            # default, no need to change!
+            #density_coefficient : 3e29 
+            #---------------
+                
+    
+    abundances:
+        type: uniform
+        O: 0.19
+        Mg: 0.03
+        Si: 0.52
+        S: 0.19
+        Ar: 0.04
+        Ca: 0.03
+                
+plasma:
+#    initial_t_inner: 10000 K
+#    initial_t_rads: 10000 K
+    disable_electron_scattering: no
+    ionization: lte
+    excitation: lte
+    #radiative_rates_type - currently supported are lte, nebular and detailed
+    radiative_rates_type: dilute-blackbody
+    #line interaction type - currently supported are scatter, downbranch and macroatom
+    line_interaction_type: macroatom
+            
+
+montecarlo:
+    seed: 23111963
+    no_of_packets : 4.0e+4
+    iterations: 20
+    
+    black_body_sampling:
+        start: 1 angstrom
+        stop: 1000000 angstrom
+        num: 1.e+6
+    last_no_of_packets: 1.e+5
+    no_of_virtual_packets: 10
+
+    convergence_criteria:
+        type: specific
+        damping_constant: 1.0
+        threshold: 0.05
+        fraction: 0.8
+        hold: 3
+        t_inner:
+            damping_constant: 1.0
+    
+
+spectrum:
+    start : 500 angstrom
+    stop : 20000 angstrom
+    num: 10000                                                                               
+\end{lstlisting}
+\end{appendices}
+
+\bibliographystyle{plain}
+\bibliography{tardis}
+
+\end{document}
